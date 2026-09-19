@@ -268,8 +268,72 @@
     border-top: 1px solid rgba(255,255,255,0.1);
   }
 
+  /* FULL PROJECT */
+  .project-full { max-width: 800px; margin: 0 auto; }
+  .project-card-full {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .project-header {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .project-card-full h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+  .project-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+  .media-section { padding: 2rem; border-bottom: 1px solid var(--border); }
+  .media-section:last-child { border-bottom: none; }
+  .media-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .gif-placeholder {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--tag-bg);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gif-placeholder img { width: 100%; display: block; }
+  .screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .screenshot-placeholder {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--tag-bg);
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .screenshot-placeholder img { width: 100%; display: block; }
+  .placeholder-text {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-family: monospace;
+  }
+
   @media (max-width: 640px) {
     .projects-grid { grid-template-columns: 1fr; }
+    .screenshots-grid { grid-template-columns: 1fr; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .nav-links { display: none; }
   }
@@ -358,69 +422,50 @@
   <div class="section-inner">
     <p class="section-label">Work</p>
     <h2 class="section-title">Selected Projects</h2>
-    <div class="projects-grid">
+    <div class="project-full">
 
-      <div class="project-card">
-        <p class="project-type">AI · Backend</p>
-        <h3>Sunrise Journaling</h3>
-        <p>Smart journaling app with an AI assistant powered by Gemini API. Built the full Django backend — REST API, PostgreSQL database, and AI chat feature for personalized journaling feedback.</p>
-        <div class="project-stack">
-          <span class="tag">Django</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Gemini API</span>
-          <span class="tag">REST API</span>
+      <div class="project-card-full">
+        <div class="project-header">
+          <p class="project-type">AI · Backend</p>
+          <h3>Sunrise Journaling</h3>
+          <p class="project-desc">Smart journaling app with an AI assistant powered by Gemini API. Built the full Django backend — REST API, PostgreSQL database, and an AI chat feature for personalized journaling feedback.</p>
+          <div class="project-stack">
+            <span class="tag">Django</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Gemini API</span>
+            <span class="tag">REST API</span>
+            <span class="tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yasamangerailoo/sunrise-journaling-prototype" target="_blank">GitHub →</a>
+          </div>
         </div>
-        <div class="project-links">
-          <a href="https://github.com/yasamangerailoo/sunrise-journaling-prototype" target="_blank">GitHub →</a>
+
+        <!-- GIF Demo -->
+        <div class="media-section">
+          <p class="media-label">Demo</p>
+          <div class="gif-placeholder">
+            <img src="demo.gif" alt="Sunrise Journaling Demo" onerror="this.parentElement.innerHTML='<p class=placeholder-text>demo.gif</p>'">
+          </div>
         </div>
+
+        <!-- Screenshots -->
+        <div class="media-section">
+          <p class="media-label">Screenshots</p>
+          <div class="screenshots-grid">
+            <div class="screenshot-placeholder">
+              <img src="screenshot-1.png" alt="Screenshot 1" onerror="this.parentElement.innerHTML='<p class=placeholder-text>screenshot-1.png</p>'">
+            </div>
+            <div class="screenshot-placeholder">
+              <img src="screenshot-2.png" alt="Screenshot 2" onerror="this.parentElement.innerHTML='<p class=placeholder-text>screenshot-2.png</p>'">
+            </div>
+            <div class="screenshot-placeholder">
+              <img src="screenshot-3.png" alt="Screenshot 3" onerror="this.parentElement.innerHTML='<p class=placeholder-text>screenshot-3.png</p>'">
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      <div class="project-card">
-        <p class="project-type">AI · RAG</p>
-        <h3>RAG-Based Chatbot</h3>
-        <p>Intelligent assistant that answers questions from custom documents using RAG architecture. Built with LangChain for retrieval, ChromaDB for vector storage, and Gemini API for generation.</p>
-        <div class="project-stack">
-          <span class="tag">LangChain</span>
-          <span class="tag">ChromaDB</span>
-          <span class="tag">Gemini API</span>
-          <span class="tag">Django</span>
-          <span class="tag">Docker</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/yasamangerailoo" target="_blank">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <p class="project-type">Backend · Teamwork</p>
-        <h3>Task Management System</h3>
-        <p>Team task management app with shared workspaces and an AI-powered weekly progress summary via Gemini API. Collaborated with a frontend developer on API design and delivery.</p>
-        <div class="project-stack">
-          <span class="tag">Django</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Gemini API</span>
-          <span class="tag">REST API</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/yasamangerailoo/TaskManagement-System" target="_blank">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <p class="project-type">Deep Learning · Computer Vision</p>
-        <h3>Bone Fracture Detection</h3>
-        <p>Object detection model trained with YOLOv8 to localize bone fractures in X-ray images. Covered the full pipeline: dataset preparation, data augmentation, training, and evaluation.</p>
-        <div class="project-stack">
-          <span class="tag">YOLOv8</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">Python</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/yasamangerailoo" target="_blank">GitHub →</a>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
